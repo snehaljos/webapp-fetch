@@ -3,7 +3,7 @@ import React from "react";
 function Button({ onClick, count }) {
   return (
     <button
-      className="btn btn-primary "
+      className="btn btn-primary sj"
       style={{ padding: "20000" }}
       onClick={onClick}
     >
