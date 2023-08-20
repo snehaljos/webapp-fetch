@@ -4,14 +4,24 @@ import Button from "./Components/Button.js";
 import Header from "./Components/Header";
 import axios from "axios";
 
-function App() {
-  const [count, setCount] = useState(3);
+function App({
+  form = {
+    title: "",
+    name: "",
+    path: "",
+    display: "form",
+    type: "form",
+    components: [],
+  },
+}) {
+  const [count, setCount] = useState("ee");
   const [users, setUsers] = useState([]);
   const [flag, setFlag] = useState(true);
-
+  console.log(form);
   useEffect(() => {
-    axios.get("https://jsonplaceholder.typicode.com/users").then((result) => {
+    axios.get("http://localhost:4000/employees").then((result) => {
       setUsers(result.data);
+
       setFlag(false);
     });
   }, [flag]);
@@ -19,17 +29,39 @@ function App() {
     return <h1>Loading...</h1>;
   }
   return (
-    <div id="dr" className="App">
-      <h1 id="head">wwww</h1>
-      <header />
-      <Button
-        style={{ padding: "20000" }}
-        onClick={() => setFlag(true)}
-        count={count}
-      />
-      <span>{users[0].name}</span>
+    <div class="container">
+      <div class="row ">
+        {users.map((data) => {
+          return (
+            <>
+              <div class="card col-lg-2" style={{ width: 18 + "rem" }}>
+                <img src="..." class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">{data.name}</p>
+                  <a href="#" class="btn btn-primary">
+                    Go somewhere
+                  </a>
+                </div>
+              </div>
+              <div class="card col-sm-2" style={{ width: 18 + "rem" }}>
+                <img src="..." class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">{data.name}</p>
+                  <a href="#" class="btn btn-primary">
+                    Go somewhere
+                  </a>
+                </div>
+              </div>
+            </>
+          );
+        })}
+      </div>
     </div>
   );
 }
-
+// App.defaultProps = {
+//   id: "234",
+// };
 export default App;

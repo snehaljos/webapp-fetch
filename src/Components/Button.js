@@ -1,13 +1,10 @@
 import React from "react";
 
-function Button({ onClick, count }) {
+function Button(props) {
   return (
-    <button
-      className="btn btn-primary sj"
-      style={{ padding: "20000" }}
-      onClick={onClick}
-    >
-      Cliked {count} times enjoy
+    <button style={{ padding: "20000" }} onClick={props.onClick}>
+      {"sss" === "sss"}
+      Cliked {props.count} times enjoy
     </button>
   );
 }
