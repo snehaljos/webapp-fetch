@@ -29,22 +29,12 @@ function App({
     return <h1>Loading...</h1>;
   }
   return (
-    <div class="container">
-      <div class="row ">
+    <div class="container mainbody">
+      <div class="row justify-content-center">
         {users.map((data) => {
           return (
             <>
-              <div class="card col-lg-2" style={{ width: 18 + "rem" }}>
-                <img src="..." class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">{data.name}</p>
-                  <a href="#" class="btn btn-primary">
-                    Go somewhere
-                  </a>
-                </div>
-              </div>
-              <div class="card col-sm-2" style={{ width: 18 + "rem" }}>
+              <div class="card col-sm-2 " style={{ width: 18 + "rem" }}>
                 <img src="..." class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
@@ -61,7 +51,4 @@ function App({
     </div>
   );
 }
-// App.defaultProps = {
-//   id: "234",
-// };
 export default App;

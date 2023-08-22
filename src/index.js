@@ -3,11 +3,23 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.css";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Header from "./Components/Header";
+import Home from "./Components/Home";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Header />}>
+          <div>
+            <Route path="Home" element={<Home />} />
+            <Route path="Login" element={<App />} />
+          </div>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

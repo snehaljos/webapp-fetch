@@ -1,4 +1,15 @@
-
-.sj{
-  font-size: 20px ;
+* {
+  box-sizing: border-box;
+}
+.mainbody{
+  background-color: rgb(97, 95, 95);
+}
+body{
+  height:100%;
+}
+html{
+  height:100%;
+}
+#s{
+  
 }
