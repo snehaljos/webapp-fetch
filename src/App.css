@@ -1,6 +1,14 @@
 * {
   box-sizing: border-box;
 }
+nav .active:hover{
+  background-color: aqua;
+  
+}
+nav li.active {
+  background-color: rgb(255, 0, 106);
+  
+}
 .mainbody{
   background-color: rgb(97, 95, 95);
 }
