@@ -3,21 +3,21 @@ import { Link, Outlet } from "react-router-dom";
 
 function Header({ onClick, count }) {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <Link className="navbar-brand" to="Home">
         Navbar
-      </a>
+      </Link>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item  ">
-            <Link class="nav-link" to="Login">
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item  ">
+            <Link className="nav-link" to="Login">
               {" "}
               Login
             </Link>
           </li>
           <li className={""}>
-            <Link class="nav-link " to="Home">
+            <Link className="nav-link " to="Home">
               Link
             </Link>
           </li>

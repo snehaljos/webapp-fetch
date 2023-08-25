@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+.root{
+  display: flex;
+}
 nav .active:hover{
   background-color: aqua;
   
@@ -10,7 +13,7 @@ nav li.active {
   
 }
 .mainbody{
-  background-color: rgb(97, 95, 95);
+  background-color: rgb(155, 143, 143);
 }
 body{
   height:100%;
@@ -18,6 +21,33 @@ body{
 html{
   height:100%;
 }
-#s{
-  
+label{
+  text-align: right;
 }
+.formDiv, .formClass{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* .formDiv{
+
+  display:flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.fromClass{
+  width:100%;
+  height: 100%;
+  display:flex !important;
+  flex-direction: column;
+} */
+input{
+  vertical-align: top;
+}
+

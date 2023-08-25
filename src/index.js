@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
+import Login from "./Components/Login";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,7 +16,8 @@ root.render(
       <Routes>
         <Route path="/" element={Home} />
         <Route index element={<Home />} />
-        <Route path="Login" element={<App />} />
+        <Route path="Home" element={<Home />} />
+        <Route path="Login" element={<Login className="Login" />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
