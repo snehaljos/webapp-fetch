@@ -3,7 +3,10 @@ import { useState } from "react";
 import validate from "./Validation";
 
 function Login() {
-  let [erros, setErros] = useState([]);
+  let [erros, setErros] = useState({
+    username_err: "",
+    password_err: "",
+  });
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
   const handleSubmit = (e) => {
@@ -11,9 +14,16 @@ function Login() {
     console.log("ss");
   };
   const handleChange = (event) => {
-    if (event.target.name == "username") setUsername(event.target.value);
-    else setPassword(event.target.value);
-    console.log(username);
+    if (event.target.name === "username") {
+      setUsername(event.target.value);
+      setErros({...erros,username_err:""});
+    }
+    else {
+      setPassword(event.target.value);
+      setErros({...erros,password_err:""});
+    }
+    console.log(!event.target.value);
+
     validate(erros, setErros, event.target);
     console.log(password);
   };
@@ -29,7 +39,7 @@ function Login() {
           type="text"
           value={username}
         />
-        {erros.length > 0 && (
+        {erros.username_err && (
           <span className="danger">Username not correct</span>
         )}
         <label htmlFor="password"> Password</label>
@@ -41,7 +51,7 @@ function Login() {
           type="password"
           value={password}
         />
-        {erros.length > 0 && (
+        {erros.password_err && (
           <span className="danger">password not correct</span>
         )}
         <button type="Submit" value="Submit">
