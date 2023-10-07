@@ -8,14 +8,14 @@ function validate(erros, setErrors, target) {
   switch (target.name) {
     case "username":{
       if (!target.value){
-        setErrors({...erros,username_err:"required"});
+        setErrors({...erros,username_err:"required",haveError:true});
         
       }
       break;
     }
     case "password":{
       if (!target.value){
-        setErrors({...erros, password_err: "password required" });
+        setErrors({...erros, password_err: "password required",haveError:true });
      
       }
       break;

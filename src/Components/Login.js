@@ -4,6 +4,7 @@ import validate from "./Validation";
 
 function Login() {
   let [erros, setErros] = useState({
+    haveError:false,
     username_err: "",
     password_err: "",
   });
@@ -14,6 +15,7 @@ function Login() {
     console.log("ss");
   };
   const handleChange = (event) => {
+  
     if (event.target.name === "username") {
       setUsername(event.target.value);
       setErros({...erros,username_err:""});
@@ -21,6 +23,9 @@ function Login() {
     else {
       setPassword(event.target.value);
       setErros({...erros,password_err:""});
+    }
+    if(!(erros.username_err || erros.password_err)){
+      setErros({...erros,haveError:false});
     }
     console.log(!event.target.value);
 
@@ -54,7 +59,7 @@ function Login() {
         {erros.password_err && (
           <span className="danger">password not correct</span>
         )}
-        <button type="Submit" value="Submit">
+        <button disabled={erros.haveError} id="Formbutton" className="btn btn-primary" type="Submit" value="Submit">
           Submit
         </button>
       </form>
