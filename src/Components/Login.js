@@ -1,18 +1,37 @@
 import { Button } from "bootstrap";
 import { useState } from "react";
 import validate from "./Validation";
+import axios from "axios";
 
 function Login() {
   let [erros, setErros] = useState({
     haveError:false,
     username_err: "",
     password_err: "",
+    noUser: "",
+    backendError:""
   });
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
+  let [isLoggedIn,setIsLoggedIn] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("ss");
+    setErros({...erros,haveError:false,noUser:"",backendError:""});
+    axios.get("http://localhost:4000/employees?name="+username)
+    .then((result) => {
+      if(result.data.length !=0){
+        setIsLoggedIn(true);
+        setErros({...erros,haveError:false,noUser:""});
+      }
+      else{
+        setIsLoggedIn(false);
+        setErros({...erros,haveError:true,noUser:"No user found"});
+      }
+  })
+  .catch(error =>{
+    setErros({...erros,haveError:true,backendError:error.message});
+  })
+    
   };
   const handleChange = (event) => {
   
@@ -34,6 +53,7 @@ function Login() {
   };
   return (
     <div className="formDiv">
+      {isLoggedIn &&<span>Logged in </span>}
       <form className="formClass" onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input
@@ -62,6 +82,8 @@ function Login() {
         <button disabled={erros.haveError} id="Formbutton" className="btn btn-primary" type="Submit" value="Submit">
           Submit
         </button>
+       {erros.haveError && erros.noUser && (<span>{erros.noUser}</span>)}
+       {erros.haveError && erros.backendError && (<span>{erros.backendError}</span>)}
       </form>
     </div>
   );

@@ -1,10 +1,40 @@
-{"employees":[  
-    {"name":"Shyam", "email":"shyamjaiswal@gmail.com"},  
-    {"name":"Bob", "email":"bob32@gmail.com"},  
-    {"name":"Jai", "email":"jai87@gmail.com"},
-    {"name":"Shyam", "email":"shyamjaiswal@gmail.com"},  
-    {"name":"Bob", "email":"bob32@gmail.com"},  
-    {"name":"Jai", "email":"jai87@gmail.com"}, 
-    {"name":"7", "email":"jai87@gmail.com"},
-    {"name":"8", "email":"jai87@gmail.com"} 
-]}  
+{
+    "employees": [
+        {
+            "name": "Shyam",
+            "email": "shyamjaiswal@gmail.com"
+        },
+        {
+            "name": "Bob",
+            "email": "bob32@gmail.com"
+        },
+        {
+            "name": "Jai",
+            "email": "jai87@gmail.com"
+        },
+        {
+            "name": "Shyam",
+            "email": "shyamjaiswal@gmail.com"
+        },
+        {
+            "name": "Bob",
+            "email": "bob32@gmail.com"
+        },
+        {
+            "name": "Jai",
+            "email": "jai87@gmail.com"
+        },
+        {
+            "name": "7",
+            "email": "jai87@gmail.com"
+        },
+        {
+            "name": "8",
+            "email": "jai87@gmail.com"
+        },
+        {
+            "name": "admin",
+            "email": "jai87@gmail.com"
+        }
+    ]
+}
