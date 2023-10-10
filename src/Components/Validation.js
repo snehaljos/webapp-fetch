@@ -2,9 +2,6 @@ function validate(erros, setErrors, target) {
   let er={...erros};
 
 
-  console.log(er);
-  console.log("inva" + erros.username_err);
-  console.log(!target.value);
   switch (target.name) {
     case "username":{
       if (!target.value){

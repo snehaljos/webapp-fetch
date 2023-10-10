@@ -2,7 +2,12 @@ import { Button } from "bootstrap";
 import { useState } from "react";
 import validate from "./Validation";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
+import Home from "./Home";
+import { useNavigate } from "react-router-dom";
+function MissedGoal() {
+	return <h1>MISSED!</h1>;
+}
 function Login() {
   let [erros, setErros] = useState({
     haveError:false,
@@ -11,6 +16,7 @@ function Login() {
     noUser: "",
     backendError:""
   });
+  const navigate = useNavigate();
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
   let [isLoggedIn,setIsLoggedIn] = useState(false);
@@ -21,16 +27,24 @@ function Login() {
     .then((result) => {
       if(result.data.length !=0){
         setIsLoggedIn(true);
+         navigate("/Home");
         setErros({...erros,haveError:false,noUser:""});
       }
       else{
         setIsLoggedIn(false);
-        setErros({...erros,haveError:true,noUser:"No user found"});
+        setErros({...erros,haveError:true,noUser:"No user found",backendError:""});
       }
   })
   .catch(error =>{
-    setErros({...erros,haveError:true,backendError:error.message});
+    setErros({...erros,haveError:true,backendError:error.message,noUser:""});
   })
+  if(isLoggedIn){
+    console.log("ddd");
+    return(
+    <div>
+     sdfss
+    </div>);
+  }
     
   };
   const handleChange = (event) => {
