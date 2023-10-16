@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
 import Login from "./Components/Login";
+import Success from "./Components/SuccessPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,6 +19,7 @@ root.render(
         <Route index element={<Home />} />
         <Route path="Home" element={<Home />} />
         <Route path="Login" element={<Login className="Login" />} />
+        <Route path="Success" element={<Success />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

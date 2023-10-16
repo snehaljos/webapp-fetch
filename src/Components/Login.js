@@ -2,8 +2,6 @@ import { Button } from "bootstrap";
 import { useState } from "react";
 import validate from "./Validation";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import Home from "./Home";
 import { useNavigate } from "react-router-dom";
 function MissedGoal() {
 	return <h1>MISSED!</h1>;
@@ -27,7 +25,7 @@ function Login() {
     .then((result) => {
       if(result.data.length !=0){
         setIsLoggedIn(true);
-         navigate("/Home");
+        navigate("/Success");
         setErros({...erros,haveError:false,noUser:""});
       }
       else{
