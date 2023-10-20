@@ -8,10 +8,13 @@ import Header from "./Components/Header";
 import Home from "./Components/Home";
 import Login from "./Components/Login";
 import Success from "./Components/SuccessPage";
+import { Provider } from "react-redux";
+import { store } from "./Store/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
     <BrowserRouter>
       <Header />
       <Routes>
@@ -22,6 +25,7 @@ root.render(
         <Route path="Success" element={<Success />} />
       </Routes>
     </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 
