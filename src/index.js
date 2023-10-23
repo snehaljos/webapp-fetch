@@ -9,7 +9,7 @@ import Home from "./Components/Home";
 import Login from "./Components/Login";
 import Success from "./Components/SuccessPage";
 import { Provider } from "react-redux";
-import { store } from "./Store/store";
+import  store  from "./Store/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

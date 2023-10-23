@@ -3,9 +3,9 @@ import { useState } from "react";
 import validate from "./Validation";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-function MissedGoal() {
-	return <h1>MISSED!</h1>;
-}
+import { useDispatch, useSelector } from "react-redux";
+import {loggedIn ,loggedOut ,isLogged,count} from "../Slice/loginSlice";
+
 function Login() {
   let [erros, setErros] = useState({
     haveError:false,
@@ -15,34 +15,32 @@ function Login() {
     backendError:""
   });
   const navigate = useNavigate();
+  const dispatch=useDispatch();
+  const count1=useSelector(count);
+  const logged=useSelector(isLogged);
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
-  let [isLoggedIn,setIsLoggedIn] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("c"+count1);
+    console.log("ll"+logged);
     setErros({...erros,haveError:false,noUser:"",backendError:""});
     axios.get("http://localhost:4000/employees?name="+username)
     .then((result) => {
       if(result.data.length !=0){
-        setIsLoggedIn(true);
+        dispatch(loggedIn());
+        console.log("l2"+logged);
         navigate("/Success");
         setErros({...erros,haveError:false,noUser:""});
       }
       else{
-        setIsLoggedIn(false);
+        dispatch(loggedOut());
         setErros({...erros,haveError:true,noUser:"No user found",backendError:""});
       }
   })
   .catch(error =>{
     setErros({...erros,haveError:true,backendError:error.message,noUser:""});
   })
-  if(isLoggedIn){
-    console.log("ddd");
-    return(
-    <div>
-     sdfss
-    </div>);
-  }
     
   };
   const handleChange = (event) => {
@@ -65,7 +63,7 @@ function Login() {
   };
   return (
     <div className="formDiv">
-      {isLoggedIn &&<span>Logged in </span>}
+      {logged &&<span>Logged in </span>}
       <form className="formClass" onSubmit={handleSubmit}>
         <label htmlFor="username">Username</label>
         <input
