@@ -16,20 +16,16 @@ function Login() {
   });
   const navigate = useNavigate();
   const dispatch=useDispatch();
-  const count1=useSelector(count);
   const logged=useSelector(isLogged);
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("c"+count1);
-    console.log("ll"+logged);
     setErros({...erros,haveError:false,noUser:"",backendError:""});
     axios.get("http://localhost:4000/employees?name="+username)
     .then((result) => {
       if(result.data.length !=0){
         dispatch(loggedIn());
-        console.log("l2"+logged);
         navigate("/Success");
         setErros({...erros,haveError:false,noUser:""});
       }
