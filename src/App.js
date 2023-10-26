@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Button from "./Components/Button.js";
 import Header from "./Components/Header";
 import axios from "axios";
+import photo from "./asset/profile.jpg"
 
 function App({
   form = {
@@ -35,7 +36,7 @@ function App({
           return (
             <>
               <div class="card col-sm-2 " style={{ width: 18 + "rem" }}>
-                <img src="..." class="card-img-top" alt="..." />
+                <img src={photo} class="card-img-top" alt="..." />
                 <div class="card-body">
                   <h5 class="card-title">Card title</h5>
                   <p class="card-text">{data.name}</p>

@@ -22,7 +22,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErros({...erros,haveError:false,noUser:"",backendError:""});
-    axios.get("http://localhost:4000/employees?name="+username)
+    axios.get("http://192.168.1.9:4000/employees?name="+username)
     .then((result) => {
       if(result.data.length !=0){
         dispatch(loggedIn());
