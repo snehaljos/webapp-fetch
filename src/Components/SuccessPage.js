@@ -16,9 +16,17 @@ function Success(){
         <img   className="Img"  src={photo} alt="SJ"/>
         <div>Snehal Jose-SSE</div>
        </div>
-       <div>
+       
+    <div className="Details">
+        <div className="Section1">
+            Section1
+        </div>
+        <div className="Section2">
+            Section2
+        </div>
 
-       </div>
+    </div>
+       
         <button onClick={()=>dispatch(loggedOut())}>loggedOut</button>
         </div>
     );
