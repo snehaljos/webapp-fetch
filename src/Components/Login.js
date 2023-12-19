@@ -24,8 +24,8 @@ function Login() {
     setErros({...erros,haveError:false,noUser:"",backendError:""});
     axios.get("http://localhost:4000/employees?name="+username)
     .then((result) => {
-      if(result.data.length !=0){
-        dispatch(loggedIn());
+            if(result.data.length !=0){
+        dispatch(loggedIn(result.data[0]));
         navigate("/Success");
         setErros({...erros,haveError:false,noUser:""});
       }

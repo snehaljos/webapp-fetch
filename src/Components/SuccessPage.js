@@ -1,6 +1,6 @@
 
-import { useDispatch } from "react-redux";
-import { loggedOut } from "../Slice/loginSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { loggedOut, userObj } from "../Slice/loginSlice";
 import photo from "../asset/profile.jpg"
 import "./SuccessPage.css";
 import { useNavigate } from "react-router-dom";
@@ -8,10 +8,11 @@ import { useNavigate } from "react-router-dom";
 function Success(){
     const dispatch=useDispatch();
     const navigate=useNavigate();
+    const userVo=useSelector(userObj);
     const handleClick = (e) =>{
         e.preventDefault();
         dispatch(loggedOut());
-        navigate("/Home");
+        navigate("/Login");
     }
     return(
         <div className="Profile">
@@ -22,7 +23,7 @@ function Success(){
        
     <div className="Details">
         <div className="Section1">
-            Section1
+            {userVo.email}
         </div>
         <div className="Section2">
             Section2
