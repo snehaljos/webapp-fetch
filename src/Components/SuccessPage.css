@@ -17,8 +17,8 @@
 
 .Section1,
 .Section2 {
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 200px;
     border-radius: 10px;
     background-color: blueviolet;
 }
