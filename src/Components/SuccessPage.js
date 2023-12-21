@@ -4,9 +4,12 @@ import { loggedOut, userObj } from "../Slice/loginSlice";
 import photo from "../asset/profile.jpg"
 import "./SuccessPage.css";
 import { useNavigate } from "react-router-dom";
+import Popup from "./Popup";
+import { useState } from "react";
 
 function Success(){
     const dispatch=useDispatch();
+    const [triggerd,setTriggerd] =useState(false);
     const navigate=useNavigate();
     const userVo=useSelector(userObj);
     const handleClick = (e) =>{
@@ -30,7 +33,8 @@ function Success(){
         </div>
 
     </div>
-       
+    <Popup trigger={triggerd} setTrigger={setTriggerd}/>
+        <button onClick={() => setTriggerd(true)}>Edit</button>
         <button onClick={handleClick}>loggedOut</button>
         </div>
     );
