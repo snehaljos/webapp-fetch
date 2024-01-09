@@ -19,11 +19,14 @@ const initialState = {
             state.isLogged = false;
             state.count++;
             state.userObj=null;
+        },
+        updateUser : (state,user) => {
+            state.userObj=user.payload;
         }
     }
 });
 ;
-export const { loggedIn ,loggedOut} = loginSlice.actions;
+export const { loggedIn ,loggedOut,updateUser} = loginSlice.actions;
 
 export const isLogged = (state) => state.login.isLogged;
 export const userObj = (state) => state.login.userObj;
