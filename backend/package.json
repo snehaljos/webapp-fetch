@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "backend api for web fetch",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
@@ -14,7 +15,9 @@
   "author": "Snehal Jose",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "dotenv": "^16.3.2",
+    "express": "^4.18.2",
+    "mysql2": "^3.7.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
