@@ -1,5 +1,5 @@
 CREATE TABLE `employees` (
-    `employees_name` VARCHAR(8) CHARACTER SET utf8,
+    `employees_name` VARCHAR(10) CHARACTER SET utf8,
     `employees_email` VARCHAR(22) CHARACTER SET utf8,
     `employees_id` INT
 );

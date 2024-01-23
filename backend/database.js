@@ -16,4 +16,10 @@ export async function getAllEmployeesById(id){
     return (users[0]);
 }
 
+export async function updateEmployees(id,email,name){
+    const [response]=await pool.query(`
+    update employees set employees_name = ?,employees_email=? where employees_id =?
+    `,[name,email,id]);
+    return response.affectedRows !==0 ? true :false ;
+}
 
