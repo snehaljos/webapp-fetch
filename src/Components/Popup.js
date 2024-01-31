@@ -6,10 +6,11 @@ function Popup(props){
     const userVo=useSelector(userObj);
     const handleSubmit = (event) =>{
         event.preventDefault();
-        axios.put("http://localhost:4000/employees?name="+userVo.name,
+        axios.put("http://localhost:5000/employees"+userVo.name,
         {
-            name:event.target.value,
-            email:"ss"
+            id: "1",
+            email:"ss",
+            name:event.target.value
         }).then(
             response =>{
                 console.log(response);

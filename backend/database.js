@@ -11,6 +11,11 @@ export async function getAllEmployees(){
     const [users]=await pool.query("select * from employees");
     return (users);
 }
+export async function getAllEmployeesByName(name){
+    const [users]=await pool.query(`select * from employees where employees_name=?`,[name]);
+    return (users[0]);
+}
+
 export async function getAllEmployeesById(id){
     const [users]=await pool.query(`select * from employees where employees_id=?`,[id]);
     return (users[0]);
